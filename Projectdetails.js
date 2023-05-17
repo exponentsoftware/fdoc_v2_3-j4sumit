@@ -8,7 +8,7 @@ const projects = [
       client: 'Client A',
       tasks: [
         {
-          title: 'Task 1',
+          title: 'Task1',
           assignee: 'Bob',
           status: 'Not Started',
           dueDate: '2023-05-20'
@@ -46,6 +46,7 @@ const projects = [
       ]
     }
   ];
+// 2-a. `findOverdueTasks` - Returns an array of tasks with a due date before a specified date.
 
   function findOverdueTasks(projects, dueDate) {
     const overdueTasks = [];
@@ -59,3 +60,27 @@ const projects = [
     return overdueTasks;
   }
 console.log(findOverdueTasks(projects, '2023-05-01'));
+
+
+// b. `assignTaskToEmployee` - Assigns a task with a specified title to an employee with a given name, only if the employee and task exist.
+
+
+function assignTaskToEmployee(projects, projectName, taskTitle, employeeName) {
+    for (const project of projects) {
+      if (project.name === projectName) {
+        for (const task of project.tasks) {
+          if (task.title === taskTitle) {
+            task.assignee = employeeName;
+            return; // Exit the function after assigning the task
+          }
+        }
+      }
+    }
+  
+    console.log('Project or task not found.'); // Or handle the error in an appropriate way
+  }
+  
+  
+
+
+assignTaskToEmployee(projects, 'Project 1', 'Task1', 'Alice');
