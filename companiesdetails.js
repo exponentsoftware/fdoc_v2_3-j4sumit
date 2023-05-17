@@ -22,7 +22,7 @@ const companies = [
         name: 'Company 3',
         employees: [
             { name: 'Vinod', role: 'Designer', department: 'Design' },
-            // { name: 'Pramod', role: 'Manager', department: 'Engineering' },
+            { name: 'Pramod', role: 'Manager', department: 'Engineering' },
             { name: 'Subodh', role: 'Developer', department: 'Engineering' },
         ],
     }
@@ -31,6 +31,7 @@ const companies = [
 
 function processCompanies(companies) {
    return companies.map((company) => {
+       //calculating number of employee in numofemloyee variable.
         const numofemployee = company.employees.length;
 
         const departments = company.employees.reduce((deptCounts, employee) => {
@@ -47,4 +48,3 @@ function processCompanies(companies) {
     })
 }
 console.log(processCompanies(companies));
-
