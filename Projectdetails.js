@@ -8,7 +8,7 @@ const projects = [
       client: 'Client A',
       tasks: [
         {
-          title: 'Task1',
+          title: 'Task 1',
           assignee: 'Bob',
           status: 'Not Started',
           dueDate: '2023-05-20'
@@ -59,7 +59,7 @@ const projects = [
     }
     return overdueTasks;
   }
-console.log(findOverdueTasks(projects, '2023-05-01'));
+// console.log(findOverdueTasks(projects, '2023-05-01'));
 
 
 // b. `assignTaskToEmployee` - Assigns a task with a specified title to an employee with a given name, only if the employee and task exist.
@@ -75,12 +75,31 @@ function assignTaskToEmployee(projects, projectName, taskTitle, employeeName) {
           }
         }
       }
+    
     }
-  
     console.log('Project or task not found.'); // Or handle the error in an appropriate way
   }
-  
-  
+//   assignTaskToEmployee(projects, 'Project 1', 'Task 1', 'Alice');
+// console.log(projects)  
+
+// c. `updateTaskStatus` - Updates a task's status in a specified project only if the task and project exist. This function should be able to update the task's status.
 
 
-assignTaskToEmployee(projects, 'Project 1', 'Task1', 'Alice');
+function updateTaskStatus(projects, projectName, taskTitle, newStatus) {
+    for (const project of projects) {
+      if (project.name === projectName) {
+        for (const task of project.tasks) {
+          if (task.title === taskTitle) {
+            task.status = newStatus;
+            return; 
+          }
+        }
+      }
+    }
+  
+    console.log('Project or task not found.'); 
+  }
+    
+
+  updateTaskStatus(projects, 'Project 1', 'Task 1', 'In Progress');
+  console.log(projects);
